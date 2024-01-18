@@ -44,8 +44,8 @@ scene.add(pointLight2)
 
 
 
-const pointLight3 = new THREE.PointLight(0xff0000, 3)
-pointLight2.position.set(4.7,-10.6,1)
+const pointLight3 = new THREE.PointLight(0x49a4, 5)
+pointLight3.position.set(-4.4,4.7,1.8)
 scene.add(pointLight3)
 const light1_folder = gui.addFolder("Light 1")
 light1_folder.add(pointLight3.position, 'x').step(0.1).min(-10).max(10)
@@ -63,8 +63,6 @@ light1_folder.addColor(light_color, 'color')
 })
 
 
-const pointLightHelper = new THREE.PointLightHelper(pointLight3,1)
-scene.add(pointLightHelper)
 /**
  * Sizes
  */
@@ -116,16 +114,43 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  * Animate
  */
 
+document.addEventListener('mousemove', onDocumentMouseMove)
+
+let mouseX = 0
+let mouseY = 0
+
+let targetX = 0
+let targetY = 0
+
+const windowHalfX = window.innerWidth/2
+const windowHalfY = window.innerHeight/2
+
+function onDocumentMouseMove (event) {
+    mouseX = (event.clientX - windowHalfX)
+    mouseY = (event.clientY - windowHalfY)
+}
+
+const updateSphere = (event) =>{
+    sphere.position.y = window.scrollY * .001
+}
+
+window.addEventListener('scroll', updateSphere)
+
+
 const clock = new THREE.Clock()
 
 const tick = () =>
 {
-
+    targetX = mouseX *0.001
+    targetY = mouseY *0.001
     const elapsedTime = clock.getElapsedTime()
 
     // Update objects
     sphere.rotation.y = .5 * elapsedTime
 
+    sphere.rotation.y = .5 * (targetX - sphere.rotation.y)
+    sphere.rotation.x = .5 * (targetY - sphere.rotation.x)
+    sphere.position.z = .5 * (targetY - sphere.rotation.x)
     // Update Orbital Controls
     // controls.update()
 
@@ -139,3 +164,4 @@ const tick = () =>
 tick()
 
 //boxes choose a box
+//animate cubes, maybe second file for each one

@@ -12,10 +12,32 @@ body
     background: rgb(32, 32, 32);
 }
 
+body{
+    overflow-x: hidden;
+}
 .webgl
 {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     outline: none;
+    z-index: 1;
+}
+
+.container{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    z-index: 0;
+}
+
+h1{
+    z-index: 2;
+    font-size: 8rem;
+    text-transform: uppercase;
+    color: white
+}
+
+section{
+    height: 100vh
 }
