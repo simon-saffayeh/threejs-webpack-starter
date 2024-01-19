@@ -16,7 +16,7 @@ const scene = new THREE.Scene()
 
 // Objects
 const geometry = new THREE.SphereBufferGeometry( .5,64,64);
-
+// const geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
 // Materials
 
 const material = new THREE.MeshStandardMaterial()
