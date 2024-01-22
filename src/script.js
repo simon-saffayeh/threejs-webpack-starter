@@ -33,7 +33,9 @@ scene.add(sphere)
 
 
 const gltfloader = new GLTFLoader()
-gltfloader.load('./static/tesla-light/scene.gltf')
+gltfloader.load('/teslaLight/scene.gltf',(gltfScene) =>{
+    scene.add(gltfScene.scene)
+})
 // Lights
 
 const pointLight = new THREE.PointLight(0xffffff, 0.1)
