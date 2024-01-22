@@ -2,6 +2,7 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 // Loading
 const textureLoader = new THREE.TextureLoader()
 const normalTexture = textureLoader.load('/textures/NormalMap.png')
@@ -30,6 +31,9 @@ material.normalMap = normalTexture
 const sphere = new THREE.Mesh(geometry,material)
 scene.add(sphere)
 
+
+const gltfloader = new GLTFLoader()
+gltfloader.load('./static/tesla-light/scene.gltf')
 // Lights
 
 const pointLight = new THREE.PointLight(0xffffff, 0.1)
