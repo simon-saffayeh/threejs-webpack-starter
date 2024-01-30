@@ -32,10 +32,10 @@ const sphere = new THREE.Mesh(geometry,material)
 scene.add(sphere)
 
 
-const gltfloader = new GLTFLoader()
-gltfloader.load('/teslaLight/scene.gltf',(gltfScene) =>{
-    scene.add(gltfScene.scene)
-})
+// const gltfloader = new GLTFLoader()
+// gltfloader.load('/teslaLight/scene.gltf',(gltfScene) =>{
+//     scene.add(gltfScene.scene)
+// })
 // Lights
 
 const pointLight = new THREE.PointLight(0xffffff, 0.1)
