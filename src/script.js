@@ -16,10 +16,9 @@ const scene = new THREE.Scene()
 
 // Objects
 
-
 let loadedModel;
 const glftLoader = new GLTFLoader();
-glftLoader.load('src/scene.gltf', (gltfScene) => {
+glftLoader.load('./scene.gltf', (gltfScene) => {
   loadedModel = gltfScene;
   scene.add(gltfScene.scene);
 })
